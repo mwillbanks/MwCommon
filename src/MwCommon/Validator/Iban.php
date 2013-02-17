@@ -10,9 +10,9 @@ use Zend\Validator\AbstractValidator;
 class Iban extends AbstractValidator
 {
 
-    const NO_MATCH = 'ibanNoMatch';
-    const INVALID_LENGTH = 'ibanInvalidLength',
-    const INVALID = 'ibanInvalid';
+    const NO_MATCH       = 'ibanNoMatch';
+    const INVALID_LENGTH = 'ibanInvalidLength';
+    const INVALID        = 'ibanInvalid';
 
     /**
      * Validation failure message template definitions
@@ -20,9 +20,9 @@ class Iban extends AbstractValidator
      * @var array
      */
     protected $messageTemplates = array(
-        self::NO_MATCH = 'The input does not match the IBAN format',
-        self::INVALID_LENGTH = 'The input must be either 8 or 11 characters',
-        self::INVALID  = 'Invalid type given.  String expected',
+        self::NO_MATCH       => 'The input does not match the IBAN format',
+        self::INVALID_LENGTH => 'The input must be either 8 or 11 characters',
+        self::INVALID        => 'Invalid type given.  String expected',
     );
 
     /**
@@ -47,7 +47,7 @@ class Iban extends AbstractValidator
         }
 
         $length = strlen($value);
-        if ($length != 8 || $length != 11) {
+        if ($length != 8 && $length != 11) {
             $this->error(self::INVALID_LENGTH);
             return false;
         }

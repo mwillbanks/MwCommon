@@ -1,0 +1,40 @@
+{
+    "name": "mwillbanks/mw-common",
+    "description": "A module contains various components for ZF2",
+    "type": "library",
+    "keywords": [
+        "zf2", "MwCommon"
+    ],
+    "homepage": "https://github.com/mwillbanks/MwCommon",
+    "authors": [
+        {
+            "name": "Mike Willbanks",
+            "email": "mike@digitalstruct.com",
+            "homepage": "http://blog.digitalstruct.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "ZfcTwitterBootstrap": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.zendframework.com/"
+        }
+    ],
+    "require": {
+        "zendframework/zend-loader": "2.*",
+        "zendframework/zend-filter": "2.*",
+        "zendframework/zend-validator": "2.*",
+        "zendframework/zend-view": "2.*"
+    }
+}

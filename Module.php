@@ -5,6 +5,8 @@
 
 namespace MwCommon;
 
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+
 class Module implements AutoloaderProviderInterface
 {
     public function getAutoloaderConfig()

@@ -1,4 +1,8 @@
 <?php
+
+use Zend\Loader\AutoloaderFactory;
+use Zend\Loader\StandardAutoloader;
+
 $additionalNamespaces = $additionalModulePaths = $moduleDependencies = null;
 
 $rootPath = realpath(dirname(__DIR__));
@@ -10,17 +14,8 @@ if (is_readable($testsPath . '/TestConfiguration.php')) {
     require_once $testsPath . '/TestConfiguration.php.dist';
 }
 
-$path = array(
-    ZF2_PATH,
-    get_include_path(),
-);
-set_include_path(implode(PATH_SEPARATOR, $path));
-
-require_once  'Zend/Loader/AutoloaderFactory.php';
-require_once  'Zend/Loader/StandardAutoloader.php';
-
-use Zend\Loader\AutoloaderFactory;
-use Zend\Loader\StandardAutoloader;
+// setup composer autoloader
+require($rootPath . '/vendor/autoload.php');
 
 // setup autoloader
 AutoloaderFactory::factory(
