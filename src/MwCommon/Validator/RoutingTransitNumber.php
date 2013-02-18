@@ -35,7 +35,7 @@ class RoutingTransitNumber extends AbstractValidator
      */
     public function isValid($value)
     {
-        if (!is_string($value) || !is_numeric($value)) {
+        if (!is_scalar($value) || !is_numeric($value)) {
             $this->error(self::INVALID);
             return false;
         }
