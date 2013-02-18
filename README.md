@@ -11,8 +11,10 @@ Components
 * Filter\ParagraphToHtml - Takes input and converts PlainText to HTML
 * Validator\Country - Interfaces with ISO3611-2.
 * Validator\CountryRegion - Interfaces with ISO3611-2.
+* Validator\Ein - Validator for US EIN numbers
 * Validator\Iban - Simple regex validator for SWIFT codes
 * Validator\RoutingTransitNumber - Validator for US routing transit numbers
+* Validator\Ssn - Validator for US SSN numbers
 
 Todo
 ----
