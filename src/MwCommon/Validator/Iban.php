@@ -331,11 +331,12 @@ class Iban extends AbstractValidator
     {
         if (null !== $allow) {
             $this->allowBban = (bool) $allow;
+
             return $this;
         }
+
         return $this->allowBban;
     }
-
 
     /**
      * Get Country
@@ -356,6 +357,7 @@ class Iban extends AbstractValidator
     public function setCountry($country)
     {
         $this->country = $country;
+
         return $this;
     }
 
@@ -370,6 +372,7 @@ class Iban extends AbstractValidator
     {
         if (!is_string($value)) {
             $this->error(self::INVALID);
+
             return false;
         }
 
@@ -394,8 +397,10 @@ class Iban extends AbstractValidator
 
         if (!preg_match($this->iban[$country]['iban'], $value)) {
             $this->error(self::NO_MATCH);
+
             return false;
         }
+
         return true;
     }
 }

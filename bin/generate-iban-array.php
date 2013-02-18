@@ -6,8 +6,6 @@
  * that have to be manually corrected.
  */
 
-
-
 /**
  * To Regular Expression
  *
@@ -15,7 +13,8 @@
  * @param array $countries
  * @return string
  */
-function toRegex($struct, array $countries = null) {
+function toRegex($struct, array $countries = null)
+{
     if ($struct == 'Not in use') {
         return '';
     }
@@ -56,20 +55,22 @@ function toRegex($struct, array $countries = null) {
  *
  * @return array
  */
-function fixCountryCode($countryCode, $sepaCounty) {
+function fixCountryCode($countryCode, $sepaCounty)
+{
     $countryCode = str_replace(array('BIC', 'IBAN'), array('bic', 'iban'), $countryCode); // normalize string
     preg_match_all('/([A-Z]{2})/', $countryCode, $matches);
     $countryCode = array_unique($matches[0]);
     preg_match_all('/([A-Z]{2})/', $sepaCounty, $matches);
     $matches[0] = array_unique($matches[0]);
     $countryCode = array_merge($countryCode, $matches[0]);
+
     return $countryCode;
 }
 
 $iban = array();
 
 $fp = fopen('http://www.swift.com/dsp/resources/documents/IBAN_Registry.txt', 'r');
-while($row = fgetcsv($fp, 0, "\t")) {
+while ($row = fgetcsv($fp, 0, "\t")) {
     if (!isset($head)) {
         $head = true;
         continue;
@@ -83,7 +84,6 @@ while($row = fgetcsv($fp, 0, "\t")) {
     $row[4] = str_replace(array(':', ' '), '', $row[4]);
     $row[11] = trim($row[11]);
     $row[11] = str_replace(array(':', ' '), '', $row[11]);
-
 
     $iban[$row[1][0]] = array(
         'bban' => toRegex($row[4]),
