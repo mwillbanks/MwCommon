@@ -4833,12 +4833,13 @@ class CountryRegion extends AbstractValidator
     /**
      * Sets the country for validation
      *
-     * @param string $country
+     * @param  string        $country
      * @return CountryRegion
      */
     public function setCountry($country)
     {
         $this->country = (string) $country;
+
         return $this;
     }
 
@@ -4851,11 +4852,11 @@ class CountryRegion extends AbstractValidator
     {
         return $this->country;
     }
-    
+
     /**
      * Get Regions
      *
-     * @param string $country
+     * @param  string $country
      * @return array
      */
     public function getRegions($country = null)
@@ -4863,13 +4864,14 @@ class CountryRegion extends AbstractValidator
         if (is_null($country)) {
             return $this->regions;
         }
+
         return $this->regions[$country];
     }
 
     /**
      * Set Regions
      *
-     * @param array $regions country => array(region_key => region_value)
+     * @param  array         $regions country => array(region_key => region_value)
      * @return CountryRegion
      */
     public function setRegions(array $regions)
@@ -4880,8 +4882,8 @@ class CountryRegion extends AbstractValidator
     /**
      * Is Valid
      *
-     * @param mixed $value
-     * @param array $context
+     * @param  mixed $value
+     * @param  array $context
      * @return bool
      */
     public function isValid($value = null, $context = null)
@@ -4896,14 +4898,17 @@ class CountryRegion extends AbstractValidator
 
         if (!is_string($value)) {
             $this->error(self::INVALID);
+
             return false;
         }
 
         $this->setValue($value);
         if (!array_key_exists($value, $this->regions[$country])) {
             $this->error(self::NO_MATCH);
+
             return false;
         }
+
         return true;
     }
 }

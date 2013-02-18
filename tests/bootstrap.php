@@ -20,7 +20,7 @@ require($rootPath . '/vendor/autoload.php');
 // setup autoloader
 AutoloaderFactory::factory(
     array(
-    	'Zend\Loader\StandardAutoloader' => array(
+        'Zend\Loader\StandardAutoloader' => array(
             StandardAutoloader::AUTOREGISTER_ZF => true,
             StandardAutoloader::ACT_AS_FALLBACK => false,
             StandardAutoloader::LOAD_NS => $additionalNamespaces,
