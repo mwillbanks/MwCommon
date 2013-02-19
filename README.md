@@ -12,12 +12,13 @@ Components
 * Validator\Country - Interfaces with ISO3611-2.
 * Validator\CountryRegion - Interfaces with ISO3611-2.
 * Validator\Ein - Validator for US EIN numbers
-* Validator\Iban - Simple regex validator for SWIFT codes
+* Validator\Iban - IBAN / BBAN validator for International Bank Accounts.
+* Validator\PhoneNumber - Phone number validator based off XML data from libPhoneNumber (http://code.google.com/p/libphonenumber/)
 * Validator\RoutingTransitNumber - Validator for US routing transit numbers
 * Validator\Ssn - Validator for US SSN numbers
 
 Todo
 ----
 
-* Validator\PhoneNumber - fork or based off of libPhoneNumber (http://code.google.com/p/libphonenumber/)
-* Validator\Iban - extend validation and fork or base off of php-iban (http://code.google.com/p/php-iban/)
+* Validator\RoutingTransitNumber - Extend validation to contain Canadian routing numbers
+* Validator\VatId - Validator for VAT ID
