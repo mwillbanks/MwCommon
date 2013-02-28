@@ -3050,6 +3050,13 @@ class PhoneNumberTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    public function testAllowPossibleSetterGetter()
+    {
+        $this->assertFalse($this->validator->allowPossible());
+        $this->validator->allowPossible(true);
+        $this->assertTrue($this->validator->allowPossible());
+    }
+
     public function testInvalidTypes()
     {
         $values = array(

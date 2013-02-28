@@ -4961,7 +4961,7 @@ class PhoneNumber extends AbstractValidator
      *
      * @var boolean
      */
-    protected $possible = false;
+    protected $allowPossible = false;
 
     /**
      * Allowed Types
@@ -5040,7 +5040,7 @@ class PhoneNumber extends AbstractValidator
             return $this;
         }
 
-        return $this->alowPossible;
+        return $this->allowPossible;
     }
 
     /**
@@ -5112,7 +5112,7 @@ class PhoneNumber extends AbstractValidator
         }
 
         // check for possible match:
-        if ($this->allowPossible) {
+        if ($this->allowPossible()) {
             foreach ($countryPhone['patterns']['possible'] as $type => $pattern) {
                 if (in_array($type, $this->allowedTypes)) {
                     // check pattern:
