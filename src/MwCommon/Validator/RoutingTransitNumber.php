@@ -10,7 +10,7 @@ use Zend\Validator\AbstractValidator;
 class RoutingTransitNumber extends AbstractValidator
 {
 
-    const CHECKSUM_MISMATCH = 'routingTransitNumberChecksumMismatch',
+    const CHECKSUM_MISMATCH = 'routingTransitNumberChecksumMismatch';
     const TOO_SHORT         = 'routingTransitNumberTooShort';
     const TOO_LONG          = 'routingTransitNumberTooLong';
     const INVALID           = 'routingTransitNumberInvalid';
