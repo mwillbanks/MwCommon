@@ -37,16 +37,19 @@ class RoutingTransitNumber extends AbstractValidator
     {
         if (!is_scalar($value) || !is_numeric($value)) {
             $this->error(self::INVALID);
+
             return false;
         }
 
         if (strlen($value) > 9) {
             $this->error(self::TOO_LONG);
+
             return false;
         }
 
         if (strlen($value) < 9) {
             $this->error(self::TOO_SHORT);
+
             return false;
         }
 
@@ -55,8 +58,10 @@ class RoutingTransitNumber extends AbstractValidator
         $checksum += 9 * ($value[2] + $value[5]);
         if ($value[8] != $checksum % 10) {
             $this->error(self::CHECKSUM_MISMATCH);
+
             return false;
         }
+
         return true;
     }
 }

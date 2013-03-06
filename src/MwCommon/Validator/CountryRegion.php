@@ -14,15 +14,17 @@ use Zend\Validator\AbstractValidator;
 class CountryRegion extends AbstractValidator
 {
 
-    const INVALID  = 'countryRegionInvalid';
-    const NO_MATCH = 'countryRegionNoMatch';
+    const INVALID     = 'countryRegionInvalid';
+    const UNSUPPORTED = 'countryRegionUnsupported';
+    const NO_MATCH    = 'countryRegionNoMatch';
 
     /**
      * @var arary
      */
     protected $messageTemplates = array(
-        self::INVALID  => 'Invalid type given.  Scalar expected',
-        self::NO_MATCH => 'The input does not appear to be a region',
+        self::INVALID     => 'Invalid type given.  Scalar expected',
+        self::UNSUPPORTED => 'The country provided is currently unsupported',
+        self::NO_MATCH    => 'The input does not appear to be a region',
     );
 
     /**
@@ -4891,7 +4893,9 @@ class CountryRegion extends AbstractValidator
         $country = $this->getCountry();
         if (!isset($this->regions[$country])) {
             if (!isset($context[$country])) {
-                throw new \InvalidArgumentException('Country or Context Country does not exist');
+                $this->error(self::UNSUPPORTED);
+
+                return false;
             }
             $country = $context[$country];
         }

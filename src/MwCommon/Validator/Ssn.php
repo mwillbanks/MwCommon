@@ -45,22 +45,26 @@ class Ssn extends AbstractValidator
     {
         if (!is_scalar($value) || !is_numeric($value)) {
             $this->error(self::INVALID);
+
             return false;
         }
 
         $length = strlen($value);
         if ($length < 9) {
             $this->error(self::TOO_SHORT);
+
             return false;
         }
 
         if ($length > 9) {
             $this->error(self::TOO_LONG);
+
             return false;
         }
 
         if (!preg_match($this->pattern, $value, $matches)) {
             $this->error(self::NO_MATCH);
+
             return false;
         }
 
@@ -68,6 +72,7 @@ class Ssn extends AbstractValidator
         foreach ($matches as $match) {
             if (0 === (int) $match) {
                 $this->error(self::NO_MATCH);
+
                 return false;
             }
         }
@@ -75,17 +80,20 @@ class Ssn extends AbstractValidator
         // invalid first digit groups 666 or 900-999
         if ($matches[1] == 666 || $matches[1] >= 900) {
             $this->error(self::NO_MATCH);
+
             return false;
         }
 
         // invalid for advertisements
         if ($value >= 987654320 && $value <= 987654329) {
             $this->error(self::NO_MATCH);
+
             return false;
         }
         // handle famous instance of 1938
         if ($value == "078051120") {
             $this->error(self::NO_MATCH);
+
             return false;
         }
 

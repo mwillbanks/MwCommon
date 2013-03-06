@@ -13,10 +13,6 @@
             "homepage": "http://blog.digitalstruct.com/"
         }
     ],
-    "require": {
-        "php": ">=5.3.3",
-        "zendframework/zendframework": "2.*"
-    },
     "autoload": {
         "psr-0": {
             "MwCommon\\": "src/"
@@ -32,9 +28,14 @@
         }
     ],
     "require": {
+        "php": ">=5.3.3",
         "zendframework/zend-loader": "2.*",
         "zendframework/zend-filter": "2.*",
         "zendframework/zend-validator": "2.*",
+        "zendframework/zend-i18n": "2.*",
         "zendframework/zend-view": "2.*"
+    },
+    "require-dev": {
+        "zendframework/zendframework": "2.*"
     }
 }

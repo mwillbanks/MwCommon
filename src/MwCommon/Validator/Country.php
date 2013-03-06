@@ -240,33 +240,37 @@ class Country extends AbstractValidator
     /**
      * Set Countries
      *
-     * @param array $countries
+     * @param  array   $countries
      * @return Country
      */
     public function setCountries(array $countries)
     {
         $this->countries = $countries;
+
         return $this;
     }
 
     /**
      * Is Valid
      *
-     * @param mixed $value
+     * @param  mixed $value
      * @return bool
      */
     public function isValid($value = null)
     {
         if (!is_string($value)) {
             $this->error(self::INVALID);
+
             return false;
         }
 
         $this->setValue($value);
         if (!array_key_exists($value, $this->countries)) {
             $this->error(self::NO_MATCH);
+
             return false;
         }
+
         return true;
     }
 }

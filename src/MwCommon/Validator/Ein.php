@@ -66,22 +66,26 @@ class Ein extends AbstractValidator
     {
         if (!is_scalar($value) || !is_numeric($value)) {
             $this->error(self::INVALID);
+
             return false;
         }
 
         $length = strlen($value);
         if ($length < 9) {
             $this->error(self::TOO_SHORT);
+
             return false;
         }
 
         if ($length > 9) {
             $this->error(self::TOO_LONG);
+
             return false;
         }
 
         if (!preg_match($this->pattern, $value, $matches)) {
             $this->error(self::NO_MATCH);
+
             return false;
         }
 
@@ -94,6 +98,7 @@ class Ein extends AbstractValidator
         }
 
         $this->error(self::NO_MATCH);
+
         return false;
     }
 }

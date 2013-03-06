@@ -10,8 +10,9 @@ use Zend\Validator\AbstractValidator;
 class PhoneNumber extends AbstractValidator
 {
 
-    const NO_MATCH = 'phoneNumberNoMatch';
-    const INVALID  = 'phoneNumberInvalid';
+    const NO_MATCH    = 'phoneNumberNoMatch';
+    const UNSUPPORTED = 'phoneNumberUnsupported';
+    const INVALID     = 'phoneNumberInvalid';
 
     /**
      * Validation failure message template definitions
@@ -19,8 +20,9 @@ class PhoneNumber extends AbstractValidator
      * @var array
      */
     protected $messageTemplates = array(
-        self::NO_MATCH => 'The input does not match a phone number format',
-        self::INVALID  => 'Invalid type given.  String expected',
+        self::NO_MATCH    => 'The input does not match a phone number format',
+        self::UNSUPPORTED => 'The country provided is currently unsupported',
+        self::INVALID     => 'Invalid type given.  String expected',
     );
 
     /**
@@ -5080,6 +5082,7 @@ class PhoneNumber extends AbstractValidator
 
             return false;
         }
+        $this->setValue($value);
 
         $country = $this->getCountry();
         if (!isset($this->phone[$country])) {
@@ -5088,7 +5091,9 @@ class PhoneNumber extends AbstractValidator
             }
 
             if (!isset($this->phone[$country])) {
-                throw new \InvalidArgumentException('No valid country provided for validation');
+                $this->error(self::UNSUPPORTED);
+
+                return false;
             }
         }
 

@@ -11,6 +11,7 @@ class Iban extends AbstractValidator
 {
 
     const NO_MATCH       = 'ibanNoMatch';
+    const UNSUPPORTED    = 'ibanUnsupported';
     const INVALID_LENGTH = 'ibanInvalidLength';
     const INVALID        = 'ibanInvalid';
 
@@ -21,6 +22,7 @@ class Iban extends AbstractValidator
      */
     protected $messageTemplates = array(
         self::NO_MATCH       => 'The input does not match the IBAN format',
+        self::UNSUPPORTED    => 'The country provided is currently unsupported',
         self::INVALID_LENGTH => 'The input must be either 8 or 11 characters',
         self::INVALID        => 'Invalid type given.  String expected',
     );
@@ -385,7 +387,9 @@ class Iban extends AbstractValidator
             }
 
             if (!isset($this->iban[$country])) {
-                throw new \InvalidArgumentException('No valid country provided for validation');
+                $this->error(self::UNSUPPORTED);
+
+                return false;
             }
         }
 
