@@ -13,6 +13,7 @@ Components
 * Validator\CountryRegion - Interfaces with ISO3611-2.
 * Validator\Ein - Validator for US EIN numbers
 * Validator\Iban - IBAN / BBAN validator for International Bank Accounts.
+* Validator\Luhn - Luhn Algorithm validator; used for validating Canada SIN and some credit cards.
 * Validator\PhoneNumber - Phone number validator based off XML data from libPhoneNumber (http://code.google.com/p/libphonenumber/)
 * Validator\RoutingTransitNumber - Validator for US routing transit numbers
 * Validator\Ssn - Validator for US SSN numbers
