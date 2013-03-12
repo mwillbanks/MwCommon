@@ -60,6 +60,27 @@ class RoutingTransitNumber extends AbstractValidator
     );
 
     /**
+     * Constructor for the Routing Transit Number
+     *
+     * Options
+     * - country | string | field or value
+     *
+     * @param array|traversable $options
+     */
+    public function __construct($options = array())
+    {
+        if ($options instanceof Traversable) {
+            $options = ArrayUtils::iteratorToArray($options);
+        }
+
+        if (array_key_exists('country', $options)) {
+            $this->setCountry($options['country']);
+        }
+
+        parent::__construct($options);
+    }
+
+    /**
      * Get Country
      *
      * @return string
@@ -97,6 +118,10 @@ class RoutingTransitNumber extends AbstractValidator
         }
 
         $country = $this->getCountry();
+        if (isset($context[$country])) {
+            $country = $context[$country];
+        }
+
         if (!in_array($country, $this->countrySupported)) {
             $this->error(self::UNSUPPORTED);
 

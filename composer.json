@@ -29,10 +29,11 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zend-loader": "2.*",
         "zendframework/zend-filter": "2.*",
-        "zendframework/zend-validator": "2.*",
         "zendframework/zend-i18n": "2.*",
+        "zendframework/zend-loader": "2.*",
+        "zendframework/zend-soap": "2.*",
+        "zendframework/zend-validator": "2.*",
         "zendframework/zend-view": "2.*"
     },
     "require-dev": {

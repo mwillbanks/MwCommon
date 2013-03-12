@@ -18,15 +18,24 @@ Components
 * Validator\PostCode - Extends Zend\I18n\Validator\PostCode to interface with ISO3611-1.
 * Validator\RoutingTransitNumber - Validator for routing transit numbers (US & CA) - you must pass an option 'country'
 * Validator\Ssn - Validator for US SSN numbers
+* Validator\VatIN - Supports most countries; however, true verification is done on EU countries.
+
+Notes
+-----
+* Most validators simply check the filtered out digits; in such cases using a filter to remove whitespace, common place formatting and more is needed.
 
 Todo
 ----
 
-* Validator\VatId - Validator for VAT ID
+* Validator\Country - Move countries to a country DB class which supplies the data and is more reusable.
+* Validator\CountryRegion - Move regions to a region DB class which supplies the data and is more reusable.
+* Validator\Iban - Check against ZF2 Iban validator; see if there is usefulness to this over ZF2 provided.
+* Validator\VatIN - Provide options to skip VIES, cache WSDL, look up additional country rules which are currently missing.
 
 ChangeLog
 ---------
 
+* 2013-03-11: VatIN validator completed, added in missing RoutingTransitOption from constructor.
 * 2013-03-11: *BC Break* Updated RoutingTransitNumber to force putting in a country.
 * 2013-03-07: Added Luhn validator for testing canada Social Identification Number (SIN).
 * 2013-03-06: Added Post Code validator to check against a country field rather than locale.
