@@ -109,7 +109,7 @@ class RoutingTransitNumber extends AbstractValidator
      * @param  string $value
      * @return bool
      */
-    public function isValid($value, $context)
+    public function isValid($value, $context = null)
     {
         if (!is_scalar($value) || !is_numeric($value)) {
             $this->error(self::INVALID);
