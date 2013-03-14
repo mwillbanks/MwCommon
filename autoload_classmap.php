@@ -12,6 +12,8 @@ return array(
     'MwCommon\Validator\PostCode'                     => __DIR__ . '/src/MwCommon/Validator/PostCode.php',
     'MwCommon\Validator\RoutingTransitNumber'         => __DIR__ . '/src/MwCommon/Validator/RoutingTransitNumber.php',
     'MwCommon\Validator\Ssn'                          => __DIR__ . '/src/MwCommon/Validator/Ssn.php',
+    'MwCommon\Validator\Swift'                        => __DIR__ . '/src/MwCommon/Validator/Swift.php',
+    'MwCommon\Validator\VatIN'                        => __DIR__ . '/src/MwCommon/Validator/VatIN.php',
     'MwCommonTest\Validator\CountryRegionTest'        => __DIR__ . '/tests/MwCommonTest/Validator/CountryRegionTest.php',
     'MwCommonTest\Validator\CountryTest'              => __DIR__ . '/tests/MwCommonTest/Validator/CountryTest.php',
     'MwCommonTest\Validator\EinTest'                  => __DIR__ . '/tests/MwCommonTest/Validator/EinTest.php',
@@ -21,4 +23,6 @@ return array(
     'MwCommonTest\Validator\PostCodeTest'             => __DIR__ . '/tests/MwCommonTest/Validator/PostCodeTest.php',
     'MwCommonTest\Validator\RoutingTransitNumberTest' => __DIR__ . '/tests/MwCommonTest/Validator/RoutingTransitNumber.php',
     'MwCommonTest\Validator\SsnTest'                  => __DIR__ . '/tests/MwCommonTest/Validator/SsnTest.php',
+    'MwCommonTest\Validator\SwiftTest'                => __DIR__ . '/tests/MwCommonTest/Validator/SwiftTest.php',
+    'MwCommonTest\Validator\VatINTest'                => __DIR__ . '/tests/MwCommonTest/Validator/VatINTest.php',
 );
