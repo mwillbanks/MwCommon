@@ -25,7 +25,7 @@ class ParagraphToHtml extends AbstractFilter
         $value = preg_replace('{^\xEF\xBB\xBF|\x1A}', '', $value);
         $text = preg_replace('{\r\n?}', "\n", $value);
 
-        $lambda = function($text) {
+        $lambda = function ($text) {
             $text = htmlspecialchars($text, ENT_COMPAT,  'UTF-8');
             $text = preg_replace('/--/', '&mdash;', $text);
             $text = nl2br($text, false);
