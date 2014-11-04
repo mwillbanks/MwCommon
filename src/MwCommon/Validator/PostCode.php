@@ -5,7 +5,10 @@
 
 namespace MwCommon\Validator;
 
+use Traversable;
 use Zend\I18n\Validator\PostCode as ZfPostCode;
+use Zend\Stdlib\ArrayUtils;
+
 
 /**
  * Post Code Validator
