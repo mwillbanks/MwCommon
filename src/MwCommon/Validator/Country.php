@@ -18,7 +18,7 @@ class Country extends AbstractValidator
     const NO_MATCH = 'countryNoMatch';
 
     /**
-     * @var arary
+     * @var array
      */
     protected $messageTemplates = array(
         self::INVALID  => 'Invalid type given.  Scalar expected',
