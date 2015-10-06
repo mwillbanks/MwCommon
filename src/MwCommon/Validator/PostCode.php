@@ -12,7 +12,7 @@ use Zend\Stdlib\ArrayUtils;
 
 /**
  * Post Code Validator
- * Based off ISO-3611-1 countries.
+ * Based off ISO-3166-1 countries.
  */
 class PostCode extends ZfPostCode
 {
@@ -27,7 +27,7 @@ class PostCode extends ZfPostCode
         self::INVALID     => 'Invalid type given. String or integer expected',
         self::UNSUPPORTED => 'The country provided is currently unsupported',
         self::NO_MATCH    => 'The input does not appear to be a postal code',
-    );
+        );
 
     /**
      * @var string

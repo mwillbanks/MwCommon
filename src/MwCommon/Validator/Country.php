@@ -9,7 +9,7 @@ use Zend\Validator\AbstractValidator;
 
 /**
  * Country Validator
- * Based off ISO-3611-1 countries.
+ * Based off ISO-3166-1 countries.
  */
 class Country extends AbstractValidator
 {
@@ -23,7 +23,7 @@ class Country extends AbstractValidator
     protected $messageTemplates = array(
         self::INVALID  => 'Invalid type given.  Scalar expected',
         self::NO_MATCH => 'The input does not appear to be a country',
-    );
+        );
 
     /**
      * ISO3611-1 Countries
@@ -225,7 +225,7 @@ class Country extends AbstractValidator
         'ZA' => 'South Africa',
         'ZM' => 'Zambia',
         'ZW' => 'Zimbabwe',
-    );
+        );
 
     /**
      * Get Countries
