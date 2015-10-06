@@ -5,6 +5,9 @@
 
 namespace MwCommon\Validator;
 
+use Traversable;
+use Zend\Soap\Client;
+use Zend\Stdlib\ArrayUtils;
 use Zend\Validator\AbstractValidator;
 
 class VatIN extends AbstractValidator
@@ -190,7 +193,7 @@ class VatIN extends AbstractValidator
         }
 
         if (in_array($country, $this->viesCountries)) {
-            $client = new \Zend\Soap\Client('http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl', array(
+            $client = new Client('http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl', array(
                 'soap_version' => SOAP_1_1,
             ));
 
